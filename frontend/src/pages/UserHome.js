@@ -13,41 +13,6 @@ const UserHome = () => {
   return (
     <Container>
       <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
-      <Title>User board</Title>
     </Container>
   )
 }
