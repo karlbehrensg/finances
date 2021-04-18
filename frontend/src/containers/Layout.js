@@ -37,6 +37,13 @@ const BrandContainer = styled.div`
   height: 80px;
 `
 
+const MenuItems = [
+  'Resumen',
+  'Movimientos'
+]
+
+const MenuList = MenuItems.map((item) => <MenuItem item={item} key={item} />)
+
 const Layout = ({ children }) => {
   return (
     <Container>
@@ -45,8 +52,7 @@ const Layout = ({ children }) => {
           <BrandContainer>
             <BrandTitle>Finanzas</BrandTitle>
           </BrandContainer>
-          <MenuItem item='Resumen' />
-          <MenuItem item='Movimientos' />
+          {MenuList}
         </Menu>
       </MenuContainer>
       {children}
