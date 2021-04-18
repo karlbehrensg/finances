@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Layout from './containers/Layout'
 import { UserHome, Movements, Register, Login } from './pages'
 import { GlobalStyle } from './GlobalStyle'
@@ -8,14 +8,16 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Router>
+      <BrowserRouter>
         <Layout>
-          <Route exact path='/' component={UserHome} />
-          <Route exact path='/movements' component={Movements} />
-          <Route exact path='/register' component={Register} />
-          <Route exact path='/login' component={Login} />
+          <Switch>
+            <Route exact path='/' component={UserHome} />
+            <Route exact path='/movements' component={Movements} />
+            <Route exact path='/register' component={Register} />
+            <Route exact path='/login' component={Login} />
+          </Switch>
         </Layout>
-      </Router>
+      </BrowserRouter>
     </>
   )
 }

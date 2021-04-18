@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const MenuDetail = styled.p`
@@ -9,8 +9,9 @@ const MenuDetail = styled.p`
   margin-left: 50px;
 `
 
-const MenuItemContainer = styled.div`
+const StyledLink = styled(NavLink)`
   display: flex;
+  text-decoration: none;
   height: 56px;
   align-items: center;
   :hover{
@@ -19,22 +20,19 @@ const MenuItemContainer = styled.div`
       color: rgba(221, 226, 255, 0.7);
     }
   }
-`
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-
-  &:focus, &:hover, &:visited, &:link, &:active {
-    text-decoration: none;
+  &[aria-current] {
+    background-color: rgba(159, 162, 180, 0.08);
+    ${MenuDetail} {
+      color: rgba(221, 226, 255, 0.7);
+    }
   }
 `
 
 const MenuItem = ({ name, to }) => {
   return (
-    <StyledLink to={to}>
-      <MenuItemContainer>
-        <MenuDetail>{name}</MenuDetail>
-      </MenuItemContainer>
+    <StyledLink exact to={to} className='MenuItem' activeClassName='MenuItem--active'>
+      <MenuDetail>{name}</MenuDetail>
     </StyledLink>
   )
 }
