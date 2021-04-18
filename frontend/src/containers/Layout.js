@@ -8,7 +8,6 @@ const Container = styled.div`
 `
 
 const MenuContainer = styled.div`
-  display: inline-block;
   max-width: 255px;
   width: 20%;
 `
@@ -16,10 +15,9 @@ const MenuContainer = styled.div`
 const Menu = styled.div`
   --offset: var(--space);
   background-color: rgba(54, 55, 64, 1);
-  max-width: 255px;
-  width: 20%;
+  width: 100%;
   height: 100vh;
-  position: fixed;
+  position: relative;
 `
 
 const BrandTitle = styled.h3`
@@ -35,6 +33,10 @@ const BrandTitle = styled.h3`
 const BrandContainer = styled.div`
   display: flex;
   height: 80px;
+`
+
+const MainContainer = styled.div`
+  width: 100%;
 `
 
 const MenuItems = [
@@ -55,7 +57,9 @@ const Layout = ({ children }) => {
           {MenuList}
         </Menu>
       </MenuContainer>
-      {children}
+      <MainContainer>
+        {children}
+      </MainContainer>
     </Container>
   )
 }
