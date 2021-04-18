@@ -38,11 +38,11 @@ const BrandContainer = styled.div`
 `
 
 const MenuItems = [
-  'Resumen',
-  'Movimientos'
+  { name: 'Resumen', to: '/' },
+  { name: 'Movimientos', to: '/movements' }
 ]
 
-const MenuList = MenuItems.map((item) => <MenuItem item={item} key={item} />)
+const MenuList = MenuItems.map((item) => <MenuItem name={item.name} to={item.to} key={item.name} />)
 
 const Layout = ({ children }) => {
   return (

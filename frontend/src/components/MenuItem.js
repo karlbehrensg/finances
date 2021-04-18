@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const MenuDetail = styled.p`
@@ -7,13 +8,6 @@ const MenuDetail = styled.p`
   letter-spacing: 0.2px;
   margin-left: 50px;
 `
-
-// const Image = styled.svg`
-//   position: absolute;
-//   width: 27px;
-//   height: 28px;
-//   margin-left: 14px;
-// `
 
 const MenuItemContainer = styled.div`
   display: flex;
@@ -27,11 +21,21 @@ const MenuItemContainer = styled.div`
   }
 `
 
-const MenuItem = ({ item }) => {
+const StyledLink = styled(Link)`
+  text-decoration: none;
+
+  &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+  }
+`
+
+const MenuItem = ({ name, to }) => {
   return (
-    <MenuItemContainer>
-      <MenuDetail>{item}</MenuDetail>
-    </MenuItemContainer>
+    <StyledLink to={to}>
+      <MenuItemContainer>
+        <MenuDetail>{name}</MenuDetail>
+      </MenuItemContainer>
+    </StyledLink>
   )
 }
 
