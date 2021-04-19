@@ -1,4 +1,5 @@
 import React from 'react'
+import UserHeader from '../components/UserHeader'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -14,17 +15,13 @@ const MainHeaderContainer = styled.div`
   align-items: center;
 `
 
-const UserContainer = styled.div`
-
-`
-
 const Header = ({ children }) => {
   return (
     <Container>
       <MainHeaderContainer>
         {children}
       </MainHeaderContainer>
-      <UserContainer>User</UserContainer>
+      <UserHeader />
     </Container>
   )
 }
