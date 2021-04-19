@@ -1,42 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import MenuItem from '../components/MenuItem'
+import Menu from '../components/Menu'
 
 const Container = styled.div`
   display: flex;
   padding: 0;
 `
 
-const MenuContainer = styled.div`
-  max-width: 255px;
-  width: 20%;
-`
-
-const Menu = styled.div`
-  --offset: var(--space);
-  background-color: rgba(54, 55, 64, 1);
-  width: 100%;
-  height: 100vh;
-  position: relative;
-`
-
-const BrandTitle = styled.h3`
-  margin-top: 20px;
-  color: rgba(164, 166, 179, 1);
-  font-weight: bold;
-  font-size: 19px;
-  line-height: 24px;
-  letter-spacing: 0.4px;
-  margin-left: 50px;
-`
-
-const BrandContainer = styled.div`
-  display: flex;
-  height: 80px;
-`
-
 const MainContainer = styled.div`
   width: 100%;
+  padding: 18px 34px;
 `
 
 const MenuItems = [
@@ -44,19 +17,10 @@ const MenuItems = [
   { name: 'Movimientos', to: '/movements' }
 ]
 
-const MenuList = MenuItems.map((item) => <MenuItem name={item.name} to={item.to} key={item.name} />)
-
 const Layout = ({ children }) => {
   return (
     <Container>
-      <MenuContainer>
-        <Menu>
-          <BrandContainer>
-            <BrandTitle>Finanzas</BrandTitle>
-          </BrandContainer>
-          {MenuList}
-        </Menu>
-      </MenuContainer>
+      <Menu items={MenuItems} />
       <MainContainer>
         {children}
       </MainContainer>
