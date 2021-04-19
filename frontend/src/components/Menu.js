@@ -12,7 +12,8 @@ const MenuList = styled.div`
   background-color: rgba(54, 55, 64, 1);
   width: 100%;
   height: 100vh;
-  position: relative;
+  position: sticky;
+  top: 0;
 `
 
 const BrandTitle = styled.h3`

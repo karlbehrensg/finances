@@ -10,6 +10,19 @@ const UserHome = () => {
         <UserHomeHeader />
       </Header>
       <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
+      <SummaryCards />
     </>
   )
 }
