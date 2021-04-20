@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Chart from '../components/Chart'
 import ChartResume from '../components/ChartResume'
 
 const Container = styled.div`
@@ -24,7 +25,7 @@ const History = () => {
   return (
     <Container>
       <ChartContainer>
-        <h1>Historia</h1>
+        <Chart />
       </ChartContainer>
       <ResumeContainer>
         <ChartResume />
