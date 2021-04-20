@@ -11,6 +11,7 @@ const Card = styled.div`
   height: 134px;
   justify-content: center;
   align-items: center;
+  margin: 0 1%;
 `
 
 const Valor = styled.h1`
@@ -28,7 +29,7 @@ const SummaryCard = () => {
     <>
       <Card>
         <CardHeader>Ingreso</CardHeader>
-        <Valor>$ 9.999</Valor>
+        <Valor>$9.999</Valor>
       </Card>
     </>
   )

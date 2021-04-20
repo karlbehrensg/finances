@@ -5,7 +5,7 @@ import SummaryCard from '../components/SummaryCard'
 const Container = styled.div`
   display: flex;
   margin-top: 28px;
-  justify-content: space-between;
+  justify-content: center;
 `
 
 const SummaryCards = () => {
