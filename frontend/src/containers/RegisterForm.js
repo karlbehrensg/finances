@@ -4,8 +4,6 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   display: block;
-  justify-content: center;
-  align-items: center;
   width: 50%;
   max-width: 350px;
   height: 100vh;
@@ -31,8 +29,7 @@ const HeaderLogin = styled.div`
 
 const Form = styled.div`
   width: 100%;
-  height: 70%;
-  padding: 0px 10% 10% 10%;
+  padding: 0px 10%;
 
   p {
     color: rgba(74, 85, 104, 1);
@@ -77,6 +74,16 @@ const Button = styled.button`
   }
 `
 
+const FooterForm = styled.div`
+  .register{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    color: rgba(159, 162, 180, 1);
+    font-size: 12px;
+  }
+`
+
 const RegisterForm = () => {
   return (
     <Container>
@@ -91,8 +98,8 @@ const RegisterForm = () => {
         <p>Confirma contraseña</p>
         <input type='password' placeholder='**********' />
         <Button>Registrate</Button>
-        <Link style={{ textDecoration: 'none' }}><p className='register'>Ya tienes una cuenta? Inicia sesion</p></Link>
       </Form>
+      <FooterForm><Link style={{ textDecoration: 'none' }} to='/login'><p className='register'>Ya tienes una cuenta? Inicia sesion</p></Link></FooterForm>
     </Container>
   )
 }

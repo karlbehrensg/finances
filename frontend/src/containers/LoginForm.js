@@ -32,8 +32,7 @@ const HeaderLogin = styled.div`
 
 const Form = styled.div`
   width: 100%;
-  height: 70%;
-  padding: 20px 10% 10% 10%;
+  padding: 20px 10% 0 10%;
 
   p {
     color: rgba(74, 85, 104, 1);
@@ -83,6 +82,16 @@ const Button = styled.button`
   }
 `
 
+const FooterForm = styled.div`
+  .register{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    color: rgba(159, 162, 180, 1);
+    font-size: 12px;
+  }
+`
+
 const LoginForm = () => {
   return (
     <Container>
@@ -97,11 +106,11 @@ const LoginForm = () => {
         <input type='password' placeholder='**********' />
         <Options>
           <Radio name='remember'><p className='option'>Recuerdame</p></Radio>
-          <Link style={{ textDecoration: 'none' }}><p className='option'>Olvidaste tu contraseña?</p></Link>
+          <Link style={{ textDecoration: 'none' }} to='/'><p className='option'>Olvidaste tu contraseña?</p></Link>
         </Options>
-        <Button>Inicia Sesion</Button>
-        <Link style={{ textDecoration: 'none' }}><p className='register'>No tienes una cuenta? Registrate</p></Link>
+        <Button type='submit'>Inicia Sesion</Button>
       </Form>
+      <FooterForm><Link style={{ textDecoration: 'none' }} to='/register'><p className='register'>No tienes una cuenta? Registrate</p></Link></FooterForm>
     </Container>
   )
 }
