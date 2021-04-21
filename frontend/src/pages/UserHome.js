@@ -3,6 +3,7 @@ import Header from '../containers/Header'
 import UserHomeHeader from '../components/UserHomeHeader'
 import SummaryCards from '../containers/SummaryCards'
 import History from '../containers/History'
+import AgentsDebts from '../containers/AgentsDebts'
 
 const UserHome = () => {
   return (
@@ -12,6 +13,7 @@ const UserHome = () => {
       </Header>
       <SummaryCards />
       <History />
+      <AgentsDebts />
     </>
   )
 }
