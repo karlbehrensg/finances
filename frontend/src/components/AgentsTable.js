@@ -31,18 +31,18 @@ const AgentsTable = () => {
       <Table>
         <tr>
           <th>Agente</th>
-          <th>Egreso</th>
-          <th>Ingreso</th>
+          <th>Fecha</th>
+          <th>Flujo</th>
           <th>Total</th>
           <th>Detalle</th>
         </tr>
-        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
+        <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
+        <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
+        <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
+        <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
+        <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
+        <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
+        <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
       </Table>
     </Container>
   )

@@ -15,13 +15,13 @@ const Button = styled.button`
   }
 `
 
-const AgentDetail = ({ name, outcomes, incomes }) => {
+const AgentDetail = ({ name, expiredDate, flow, total }) => {
   return (
     <tr>
       <td>{name}</td>
-      <td>{outcomes}</td>
-      <td>{incomes}</td>
-      <td>{incomes - outcomes}</td>
+      <td>{expiredDate}</td>
+      <td>{flow}</td>
+      <td>{total}</td>
       <td><Button>Ver</Button></td>
     </tr>
   )
