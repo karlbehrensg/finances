@@ -10,6 +10,7 @@ const Container = styled.div`
   border: 1px solid rgba(223, 224, 235, 1);
   width: 100%;
   margin-bottom: 5%;
+  border-radius: 8px;
 `
 
 const AgentsDebts = () => {

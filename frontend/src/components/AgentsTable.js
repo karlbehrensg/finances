@@ -7,6 +7,7 @@ const Container = styled.div`
   margin-top: 28px;
   width: 100%;
   justify-content: center;
+  margin-bottom: 27px;
 `
 
 const Table = styled.table`
