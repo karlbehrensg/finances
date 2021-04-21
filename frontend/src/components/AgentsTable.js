@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import AgentTable from './AgentTable'
+import AgentDetail from './AgentDetail'
 
 const Container = styled.div`
   display: flex;
@@ -36,13 +36,13 @@ const AgentsTable = () => {
           <th>Total</th>
           <th>Detalle</th>
         </tr>
-        <AgentTable name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentTable name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentTable name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentTable name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentTable name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentTable name='Ernesto' outcomes={3.333} incomes={9.999} />
-        <AgentTable name='Ernesto' outcomes={3.333} incomes={9.999} />
+        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
+        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
+        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
+        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
+        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
+        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
+        <AgentDetail name='Ernesto' outcomes={3.333} incomes={9.999} />
       </Table>
     </Container>
   )

@@ -15,7 +15,7 @@ const Button = styled.button`
   }
 `
 
-const AgentTable = ({ name, outcomes, incomes }) => {
+const AgentDetail = ({ name, outcomes, incomes }) => {
   return (
     <tr>
       <td>{name}</td>
@@ -27,4 +27,4 @@ const AgentTable = ({ name, outcomes, incomes }) => {
   )
 }
 
-export default AgentTable
+export default AgentDetail

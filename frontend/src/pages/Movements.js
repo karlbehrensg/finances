@@ -1,8 +1,9 @@
 import React from 'react'
+import MovementsDetails from '../containers/MovementsDetails'
 
 const Movements = () => {
   return (
-    <h1>Movements</h1>
+    <MovementsDetails />
   )
 }
 
