@@ -9,14 +9,14 @@ const App = () => {
     <>
       <GlobalStyle />
       <BrowserRouter>
-        <Layout>
-          <Switch>
-            <Route exact path='/' component={UserHome} />
+        <Switch>
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
+          <Layout>
             <Route exact path='/movements' component={Movements} />
-            <Route exact path='/register' component={Register} />
-            <Route exact path='/login' component={Login} />
-          </Switch>
-        </Layout>
+            <Route exact path='/' component={UserHome} />
+          </Layout>
+        </Switch>
       </BrowserRouter>
     </>
   )
