@@ -109,9 +109,7 @@ const LoginForm = () => {
         <h1>Inicia sesion</h1>
       </HeaderLogin>
       <Form onSubmit={handleSubmit}>
-        <p>Usuario</p>
         <input type='text' placeholder='Correo electronico' onChange={(e) => setUsername(e.target.value)} value={username} />
-        <p>Contraseña</p>
         <input type='password' placeholder='**************' onChange={(e) => setPassword(e.target.value)} value={password} />
         <Options>
           <Radio name='remember'><p className='option'>Recuerdame</p></Radio>

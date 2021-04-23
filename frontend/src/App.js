@@ -1,12 +1,15 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
 import Layout from './containers/Layout'
 import { UserHome, Movements, Register, Login } from './pages'
 import { GlobalStyle } from './GlobalStyle'
 
+import { UserContextProvider } from './context/UserContext'
+
 const App = () => {
   return (
-    <>
+    <UserContextProvider>
       <GlobalStyle />
       <BrowserRouter>
         <Switch>
@@ -18,7 +21,7 @@ const App = () => {
           </Layout>
         </Switch>
       </BrowserRouter>
-    </>
+    </UserContextProvider>
   )
 }
 
