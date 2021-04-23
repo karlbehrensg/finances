@@ -1,5 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+
+import useUser from '../hooks/useUser'
 
 const UserContainer = styled.div`
   display: flex;
@@ -12,9 +15,20 @@ const Name = styled.p`
 `
 
 const UserHeader = () => {
+  const { isLogged, logout } = useUser()
+
+  const handleClick = e => {
+    e.preventDefault()
+    logout()
+  }
+
   return (
     <UserContainer>
-      <Name>Karl Behrens</Name>
+      {
+        isLogged
+          ? <Link to='/' onClick={handleClick}><Name>Logueado</Name></Link>
+          : <Link to='/login'><Name>Sin loguear</Name></Link>
+      }
     </UserContainer>
   )
 }

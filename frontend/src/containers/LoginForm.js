@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import Radio from '../components/Radio'
+
+import useUser from '../hooks/useUser'
 
 const Container = styled.div`
   display: block;
@@ -95,11 +97,16 @@ const FooterForm = styled.div`
 const LoginForm = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const { login, isLogged } = useUser()
+  const history = useHistory()
+
+  useEffect(() => {
+    if (isLogged) history.push('/')
+  }, [isLogged])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(username)
-    console.log(password)
+    login({ username, password })
   }
 
   return (
