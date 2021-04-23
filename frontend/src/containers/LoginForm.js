@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Radio from '../components/Radio'
@@ -30,7 +30,7 @@ const HeaderLogin = styled.div`
   }
 `
 
-const Form = styled.div`
+const Form = styled.form`
   width: 100%;
   padding: 20px 10% 0 10%;
 
@@ -93,20 +93,29 @@ const FooterForm = styled.div`
 `
 
 const LoginForm = () => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(username)
+    console.log(password)
+  }
+
   return (
     <Container>
       <HeaderLogin>
         <p>Bienvenido de vuelta</p>
         <h1>Inicia sesion</h1>
       </HeaderLogin>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <p>Usuario</p>
-        <input type='text' placeholder='Correo electronico' />
+        <input type='text' placeholder='Correo electronico' onChange={(e) => setUsername(e.target.value)} value={username} />
         <p>Contraseña</p>
-        <input type='password' placeholder='**********' />
+        <input type='password' placeholder='**************' onChange={(e) => setPassword(e.target.value)} value={password} />
         <Options>
           <Radio name='remember'><p className='option'>Recuerdame</p></Radio>
-          <Link style={{ textDecoration: 'none' }} to='/'><p className='option'>Olvidaste tu contraseña?</p></Link>
+          <Link style={{ textDecoration: 'none' }} to='/login'><p className='option'>Olvidaste tu contraseña?</p></Link>
         </Options>
         <Button type='submit'>Inicia Sesion</Button>
       </Form>

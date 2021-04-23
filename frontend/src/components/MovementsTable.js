@@ -29,36 +29,37 @@ const MovementsTable = () => {
   return (
     <Container>
       <Table>
-        <tr>
-          <th>Fecha</th>
-          <th>Agente</th>
-          <th>Flujo</th>
-          <th>Monto</th>
-          <th>Categoria</th>
-          <th>Detalle</th>
-        </tr>
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-        <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-
+        <tbody>
+          <tr>
+            <th>Fecha</th>
+            <th>Agente</th>
+            <th>Flujo</th>
+            <th>Monto</th>
+            <th>Categoria</th>
+            <th>Detalle</th>
+          </tr>
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+        </tbody>
       </Table>
     </Container>
   )
