@@ -7,7 +7,9 @@ from .serializers import MovementSerializer
 @api_view(['GET'])
 def movements_list(request):
     if request.method == 'GET':
+        print(request.headers)
         user = request.user
         movement = Movement.objects.filter(user=user)
         serializer = MovementSerializer(movement, many=True)
-        return Response(serializer.data)
+        response = {'movements': serializer.data}
+        return Response(response)
