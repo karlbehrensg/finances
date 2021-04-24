@@ -7,6 +7,8 @@ import { GlobalStyle } from './GlobalStyle'
 
 import { UserContextProvider } from './context/UserContext'
 
+import PrivateRoute from './components/PrivateRoute'
+
 const App = () => {
   return (
     <UserContextProvider>
@@ -16,8 +18,8 @@ const App = () => {
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <Layout>
-            <Route exact path='/movements' component={Movements} />
-            <Route exact path='/' component={UserHome} />
+            <PrivateRoute exact path='/movements' component={Movements} />
+            <PrivateRoute exact path='/' component={UserHome} />
           </Layout>
         </Switch>
       </BrowserRouter>
