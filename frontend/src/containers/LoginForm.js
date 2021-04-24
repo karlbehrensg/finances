@@ -97,7 +97,7 @@ const FooterForm = styled.div`
 const LoginForm = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { login, isLogged } = useUser()
+  const { isLoginLoading, hasLoginError, login, isLogged } = useUser()
   const history = useHistory()
 
   useEffect(() => {
@@ -122,6 +122,7 @@ const LoginForm = () => {
           <Radio name='remember'><p className='option'>Recuerdame</p></Radio>
           <Link style={{ textDecoration: 'none' }} to='/login'><p className='option'>Olvidaste tu contraseña?</p></Link>
         </Options>
+        {(!isLoginLoading && hasLoginError) && <strong>El Usuario y/o contraseña no coinciden</strong>}
         <Button type='submit'>Inicia Sesion</Button>
       </Form>
       <FooterForm><Link style={{ textDecoration: 'none' }} to='/register'><p className='register'>No tienes una cuenta? Registrate</p></Link></FooterForm>

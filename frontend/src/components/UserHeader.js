@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 import useUser from '../hooks/useUser'
@@ -15,20 +15,18 @@ const Name = styled.p`
 `
 
 const UserHeader = () => {
-  const { isLogged, logout } = useUser()
+  const { logout } = useUser()
+  const history = useHistory()
 
   const handleClick = e => {
     e.preventDefault()
     logout()
+    history.push('/login')
   }
 
   return (
     <UserContainer>
-      {
-        isLogged
-          ? <Link to='/' onClick={handleClick}><Name>Logueado</Name></Link>
-          : <Link to='/login'><Name>Sin loguear</Name></Link>
-      }
+      <Link onClick={handleClick} to='/'><Name>Cerrar sesion</Name></Link>
     </UserContainer>
   )
 }
