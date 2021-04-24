@@ -10,16 +10,19 @@ const useUser = () => {
     setState({ loading: true, error: false })
     loginService({ username, password })
       .then(jwt => {
+        window.localStorage.setItem('jwt', jwt)
         setState({ loading: false, error: false })
         setJWT(jwt)
       })
       .catch(err => {
+        window.localStorage.removeItem('jwt')
         setState({ loading: false, error: true })
         console.error(err)
       })
   }, [setJWT])
 
   const logout = useCallback(() => {
+    window.localStorage.removeItem('jwt')
     setJWT(null)
   }, [setJWT])
 
