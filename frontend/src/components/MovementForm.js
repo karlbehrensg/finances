@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 
@@ -29,13 +29,14 @@ const Form = styled.form`
   width: 650px;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
 `
 
 const FirstRow = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: 20px;
 
   input {
     border: 1px solid rgba(232, 232, 232, 1);
@@ -43,9 +44,29 @@ const FirstRow = styled.div`
     border-radius: 5px;
     height: 10px;
     background-color: rgba(247, 248, 252, 1);
-    margin: 10px 0px;
     padding: 3%;
-    width: 30%;
+    width: 36%;
+  }
+
+  label {
+    display: flex;
+    width: 20%;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    
+    input {
+      height: 15px;
+      width: 15px;
+      margin-right: 15px;
+    }
+  }
+
+  label:hover {
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+
   }
 `
 
@@ -53,6 +74,7 @@ const SecondRow = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: 10px;
 
   input {
     border: 1px solid rgba(232, 232, 232, 1);
@@ -60,7 +82,6 @@ const SecondRow = styled.div`
     border-radius: 5px;
     height: 10px;
     background-color: rgba(247, 248, 252, 1);
-    margin: 10px 0px;
     padding: 3%;
     width: 40%;
   }
@@ -87,7 +108,7 @@ const AddButton = styled.button`
   height: 22px;
   color: white;
   font-weight: bold;
-  margin: 5px;
+  margin: 5px 0 0 10px;
   
   :hover {
     background: rgba(41, 204, 151, 1);
@@ -102,7 +123,7 @@ const CancelButton = styled.button`
   height: 22px;
   color: white;
   font-weight: bold;
-  margin: 5px;
+  margin: 5px 0 0 10px;
   
   :hover {
     background: rgba(255, 69, 70, 1);
@@ -111,21 +132,33 @@ const CancelButton = styled.button`
 `
 
 const MovementForm = () => {
+  const today = new Date().toISOString().slice(0, 10)
+  const [date, setDate] = useState(today)
+  const [agent, setAgent] = useState('')
+  const [income, setIncome] = useState(false)
+  const [amount, setAmount] = useState('')
+  const [category, setCategory] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(date, agent, income, amount, category)
+  }
+
   return ReactDOM.createPortal(
     <Container>
       <Form>
         <FirstRow>
-          <input type='text' placeholder='Fecha' />
-          <input type='text' placeholder='Agente' />
-          <input type='text' placeholder='Flujo' />
+          <input type='date' placeholder='Fecha' value={date} onChange={(e) => setDate(e.target.value)} />
+          <input type='text' placeholder='Agente' value={agent} onChange={(e) => setAgent(e.target.value)} />
+          <label><input type='checkbox' onChange={() => setIncome(!income)} />Ingreso</label>
         </FirstRow>
         <SecondRow>
-          <AmountInput type='text' placeholder='Monto' />
-          <CategoryInput type='text' placeholder='Categoria' />
+          <AmountInput inputmode='text' placeholder='Monto' value={amount} onChange={(e) => setAmount(e.target.value)} />
+          <CategoryInput type='text' placeholder='Categoria' value={category} onChange={(e) => setCategory(e.target.value)} />
         </SecondRow>
         <ThirdRow>
           <CancelButton>Cancelar</CancelButton>
-          <AddButton>Crear</AddButton>
+          <AddButton onClick={handleSubmit}>Crear</AddButton>
         </ThirdRow>
       </Form>
     </Container>,
