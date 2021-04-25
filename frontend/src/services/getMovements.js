@@ -12,7 +12,6 @@ const getMovements = ({ jwt }) => {
     return res.json()
   }).then(res => {
     const { movements } = res
-    console.log(movements)
     return movements
   })
 }

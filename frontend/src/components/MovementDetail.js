@@ -20,7 +20,7 @@ const MovementDetail = ({ date, name, flow, mount, category }) => {
     <tr>
       <td>{date}</td>
       <td>{name}</td>
-      <td>{flow}</td>
+      <td>{flow ? 'Ingreso' : 'Egreso'}</td>
       <td>{mount}</td>
       <td>{category}</td>
       <td><Button>Ver</Button></td>

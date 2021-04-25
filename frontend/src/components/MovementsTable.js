@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import MovementDetail from './MovementDetail'
+
+import UserContextProvider from '../context/UserContext'
 
 const Container = styled.div`
   display: flex;
@@ -26,6 +28,9 @@ const Table = styled.table`
 `
 
 const MovementsTable = () => {
+  const context = useContext(UserContextProvider)
+  const movementsList = context.movements.map((movement, index) => <MovementDetail date={movement.expired} name={movement.agent} flow={movement.income} mount={movement.amount} category={movement.category} key={index} />)
+
   return (
     <Container>
       <Table>
@@ -38,27 +43,7 @@ const MovementsTable = () => {
             <th>Categoria</th>
             <th>Detalle</th>
           </tr>
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
-          <MovementDetail date='2020-02-03' name='Ernesto Guerra' flow='Egreso' mount={9.999} category='Tarjeta de Credito' />
+          {movementsList}
         </tbody>
       </Table>
     </Container>
