@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+
 import MovementDetail from './MovementDetail'
 
-import UserContextProvider from '../context/UserContext'
+import Context from '../context/UserContext'
 
 const Container = styled.div`
   display: flex;
@@ -28,8 +29,16 @@ const Table = styled.table`
 `
 
 const MovementsTable = () => {
-  const context = useContext(UserContextProvider)
-  const movementsList = context.movements.map((movement, index) => <MovementDetail date={movement.expired} name={movement.agent} flow={movement.income} mount={movement.amount} category={movement.category} key={index} />)
+  const { movements } = useContext(Context)
+  const movementsList = movements.map((movement, index) =>
+    <MovementDetail
+      date={movement.expired}
+      name={movement.agent}
+      flow={movement.income}
+      mount={movement.amount}
+      category={movement.category} key={index}
+    />
+  )
 
   return (
     <Container>

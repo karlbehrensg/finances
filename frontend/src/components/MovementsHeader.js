@@ -3,10 +3,16 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   display: flex;
-  height: 45px;
   align-items: center;
-  margin: 15px 0 0 35px;
-  width: 100%;
+  margin: 15px 15px 0 35px;
+  justify-content:space-between;
+
+  div {
+    display: flex;
+    align-items: center;
+    width: 110px;
+    /* margin: 15px 15px 0 35px; */
+  }
 `
 
 const Title = styled.h3`
@@ -45,45 +51,62 @@ const Form = styled.form`
   justify-content: space-around;
   margin-left: 24px;
   margin-top: 5px;
-  width: 50%;
-  max-width: 330px;
+  /* width: 100%; */
+  max-width: 400px;
 `
 
 const SelectionContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 35%;
+`
+
+const AddButton = styled.button`
+  background: rgba(4, 195, 92, 1);
+  border-radius: 100px;
+  width: 150px;
+  height: 20px;
+  color: white;
+  font-weight: bold;
+  margin-top: 5px;
+  
+  :hover {
+    background: rgba(41, 204, 151, 1);
+    transition: 0.5s;
+  }
 `
 
 const MovementsHeader = () => {
   return (
     <Container>
-      <Title>Movimientos</Title>
-      <Form>
-        <SelectionContainer>
-          <Select name='month' id='month'>
-            <option value='march'>Marzo</option>
-            <option value='april'>Abril</option>
-          </Select>
-          <Select name='year' id='year'>
-            <option value='2020'>2020</option>
-            <option value='2021'>2021</option>
-          </Select>
-        </SelectionContainer>
-        -
-        <SelectionContainer>
-          <Select name='month' id='month'>
-            <option value='march'>Marzo</option>
-            <option value='april'>Abril</option>
-          </Select>
-          <Select name='year' id='year'>
-            <option value='2020'>2020</option>
-            <option value='2021'>2021</option>
-          </Select>
-        </SelectionContainer>
-        <Button type='button'>Ir</Button>
-      </Form>
+      <div>
+        <Title>Movimientos</Title>
+        <Form>
+          <SelectionContainer>
+            <Select name='month' id='month'>
+              <option value='march'>Marzo</option>
+              <option value='april'>Abril</option>
+            </Select>
+            <Select name='year' id='year'>
+              <option value='2020'>2020</option>
+              <option value='2021'>2021</option>
+            </Select>
+          </SelectionContainer>
+          -
+          <SelectionContainer>
+            <Select name='month' id='month'>
+              <option value='march'>Marzo</option>
+              <option value='april'>Abril</option>
+            </Select>
+            <Select name='year' id='year'>
+              <option value='2020'>2020</option>
+              <option value='2021'>2021</option>
+            </Select>
+          </SelectionContainer>
+          <Button type='button'>Ir</Button>
+        </Form>
+      </div>
+      <AddButton type='button'>Crear movimiento</AddButton>
     </Container>
   )
 }
