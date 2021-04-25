@@ -16,7 +16,7 @@ const Container = styled.div`
   z-index: 1000;
 `
 
-const Form = styled.form`
+const Form = styled.div`
   display: block;
   position: fixed;
   top: 50%;
@@ -131,7 +131,9 @@ const CancelButton = styled.button`
   }
 `
 
-const MovementForm = () => {
+const MovementForm = ({ formDisplay, onClose }) => {
+  if (!formDisplay) return null
+
   const today = new Date().toISOString().slice(0, 10)
   const [date, setDate] = useState(today)
   const [agent, setAgent] = useState('')
@@ -157,7 +159,7 @@ const MovementForm = () => {
           <CategoryInput type='text' placeholder='Categoria' value={category} onChange={(e) => setCategory(e.target.value)} />
         </SecondRow>
         <ThirdRow>
-          <CancelButton>Cancelar</CancelButton>
+          <CancelButton onClick={onClose}>Cancelar</CancelButton>
           <AddButton onClick={handleSubmit}>Crear</AddButton>
         </ThirdRow>
       </Form>

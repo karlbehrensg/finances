@@ -76,35 +76,31 @@ const AddButton = styled.button`
 `
 
 const MovementsHeader = () => {
-  const [formDisplay, setFormDisplay] = useState(true)
-
-  const displayForm = () => {
-    setFormDisplay(!formDisplay)
-  }
+  const [formDisplay, setFormDisplay] = useState(false)
 
   return (
     <Container>
-      {formDisplay && <MovementForm />}
+      <MovementForm formDisplay={formDisplay} onClose={() => setFormDisplay(false)} />
       <div>
         <Title>Movimientos</Title>
         <Form>
           <SelectionContainer>
-            <Select name='month' id='month'>
+            <Select name='month' id='initial_month'>
               <option value='march'>Marzo</option>
               <option value='april'>Abril</option>
             </Select>
-            <Select name='year' id='year'>
+            <Select name='year' id='initial_year'>
               <option value='2020'>2020</option>
               <option value='2021'>2021</option>
             </Select>
           </SelectionContainer>
           -
           <SelectionContainer>
-            <Select name='month' id='month'>
+            <Select name='month' id='finish_month'>
               <option value='march'>Marzo</option>
               <option value='april'>Abril</option>
             </Select>
-            <Select name='year' id='year'>
+            <Select name='year' id='finish_year'>
               <option value='2020'>2020</option>
               <option value='2021'>2021</option>
             </Select>
@@ -112,7 +108,7 @@ const MovementsHeader = () => {
           <Button type='button'>Ir</Button>
         </Form>
       </div>
-      <AddButton type='button' onClick={displayForm}>Crear movimiento</AddButton>
+      <AddButton type='button' onClick={() => setFormDisplay(true)}>Crear movimiento</AddButton>
     </Container>
   )
 }
