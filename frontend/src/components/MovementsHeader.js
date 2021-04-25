@@ -76,7 +76,7 @@ const AddButton = styled.button`
 `
 
 const MovementsHeader = () => {
-  const [formDisplay, setFormDisplay] = useState(false)
+  const [formDisplay, setFormDisplay] = useState(true)
 
   const displayForm = () => {
     setFormDisplay(!formDisplay)
