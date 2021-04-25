@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
+import useMovement from '../hooks/useMovement'
 
 const AmountInput = styled.input``
 const CategoryInput = styled.input``
@@ -135,27 +136,29 @@ const MovementForm = ({ formDisplay, onClose }) => {
   if (!formDisplay) return null
 
   const today = new Date().toISOString().slice(0, 10)
-  const [date, setDate] = useState(today)
+  const [expired, setExpired] = useState(today)
   const [agent, setAgent] = useState('')
   const [income, setIncome] = useState(false)
   const [amount, setAmount] = useState('')
   const [category, setCategory] = useState('')
+  const { createMovement } = useMovement()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(date, agent, income, amount, category)
+    console.log(expired, agent, income, amount, category)
+    createMovement({ expired, agent, income, amount, category })
   }
 
   return ReactDOM.createPortal(
     <Container>
       <Form>
         <FirstRow>
-          <input type='date' placeholder='Fecha' value={date} onChange={(e) => setDate(e.target.value)} />
+          <input type='date' placeholder='Fecha' value={expired} onChange={(e) => setExpired(e.target.value)} />
           <input type='text' placeholder='Agente' value={agent} onChange={(e) => setAgent(e.target.value)} />
           <label><input type='checkbox' onChange={() => setIncome(!income)} />Ingreso</label>
         </FirstRow>
         <SecondRow>
-          <AmountInput inputmode='text' placeholder='Monto' value={amount} onChange={(e) => setAmount(e.target.value)} />
+          <AmountInput type='number' placeholder='Monto' value={amount} onChange={(e) => setAmount(e.target.value)} />
           <CategoryInput type='text' placeholder='Categoria' value={category} onChange={(e) => setCategory(e.target.value)} />
         </SecondRow>
         <ThirdRow>

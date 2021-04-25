@@ -28,7 +28,7 @@ const useUser = () => {
 
   return {
     isLogged: Boolean(jwt),
-    isLoginLoading: state.isLoginLoading,
+    isLoginLoading: state.loading,
     hasLoginError: state.error,
     login,
     logout
