@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import MovementForm from './MovementForm'
 
 const Container = styled.div`
   display: flex;
@@ -11,7 +12,6 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     width: 110px;
-    /* margin: 15px 15px 0 35px; */
   }
 `
 
@@ -51,7 +51,6 @@ const Form = styled.form`
   justify-content: space-around;
   margin-left: 24px;
   margin-top: 5px;
-  /* width: 100%; */
   max-width: 400px;
 `
 
@@ -77,8 +76,15 @@ const AddButton = styled.button`
 `
 
 const MovementsHeader = () => {
+  const [formDisplay, setFormDisplay] = useState(false)
+
+  const displayForm = () => {
+    setFormDisplay(!formDisplay)
+  }
+
   return (
     <Container>
+      {formDisplay && <MovementForm />}
       <div>
         <Title>Movimientos</Title>
         <Form>
@@ -106,7 +112,7 @@ const MovementsHeader = () => {
           <Button type='button'>Ir</Button>
         </Form>
       </div>
-      <AddButton type='button'>Crear movimiento</AddButton>
+      <AddButton type='button' onClick={displayForm}>Crear movimiento</AddButton>
     </Container>
   )
 }
