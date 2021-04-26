@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+
+import MovementForm from './MovementForm'
 
 const Button = styled.button`
   background: rgba(4, 195, 92, 1);
@@ -15,16 +17,21 @@ const Button = styled.button`
   }
 `
 
-const MovementDetail = ({ date, name, flow, mount, category }) => {
+const MovementDetail = ({ movement }) => {
+  const [showForm, setShowForm] = useState(false)
+
   return (
-    <tr>
-      <td>{date}</td>
-      <td>{name}</td>
-      <td>{flow ? 'Ingreso' : 'Egreso'}</td>
-      <td>{mount}</td>
-      <td>{category}</td>
-      <td><Button>Ver</Button></td>
-    </tr>
+    <>
+      <MovementForm formDisplay={showForm} onClose={() => setShowForm(false)} />
+      <tr>
+        <td>{movement.expired}</td>
+        <td>{movement.name}</td>
+        <td>{movement.flow ? 'Ingreso' : 'Egreso'}</td>
+        <td>{movement.mount}</td>
+        <td>{movement.category}</td>
+        <td><Button movement={movement} onClick={() => setShowForm(true)}>Ver</Button></td>
+      </tr>
+    </>
   )
 }
 

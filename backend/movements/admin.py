@@ -3,4 +3,4 @@ from .models import Movement
 
 @admin.register(Movement)
 class MovementAdmin(admin.ModelAdmin):
-    list_display = ('user', 'expired', 'agent', 'income', 'amount', 'category')
+    list_display = ('user', 'created', 'expired', 'agent', 'income', 'amount', 'category')

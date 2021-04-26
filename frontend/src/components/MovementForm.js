@@ -145,8 +145,8 @@ const MovementForm = ({ formDisplay, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(expired, agent, income, amount, category)
     createMovement({ expired, agent, income, amount, category })
+    onClose()
   }
 
   return ReactDOM.createPortal(

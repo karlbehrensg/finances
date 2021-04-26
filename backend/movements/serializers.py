@@ -4,4 +4,4 @@ from .models import Movement
 class MovementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movement
-        fields = ['expired', 'agent', 'income', 'amount', 'category']
+        fields = ['id', 'expired', 'agent', 'income', 'amount', 'category']

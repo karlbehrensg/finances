@@ -30,13 +30,10 @@ const Table = styled.table`
 
 const MovementsTable = () => {
   const { movements } = useContext(Context)
-  const movementsList = movements.map((movement, index) =>
+  const movementsList = movements.map((movement) =>
     <MovementDetail
-      date={movement.expired}
-      name={movement.agent}
-      flow={movement.income}
-      mount={movement.amount}
-      category={movement.category} key={index}
+      movement={movement}
+      key={movement.id}
     />
   )
 

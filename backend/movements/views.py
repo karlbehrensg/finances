@@ -8,7 +8,7 @@ from .serializers import MovementSerializer
 def movements_list(request):
     if request.method == 'GET':
         user = request.user
-        movement = Movement.objects.filter(user=user)
+        movement = Movement.objects.filter(user=user).order_by('-expired')
         serializer = MovementSerializer(movement, many=True)
         response = {'movements': serializer.data}
         return Response(response)
