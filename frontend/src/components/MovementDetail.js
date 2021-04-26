@@ -22,14 +22,22 @@ const MovementDetail = ({ movement }) => {
 
   return (
     <>
-      <MovementForm formDisplay={showForm} onClose={() => setShowForm(false)} />
+      <MovementForm
+        formDisplay={showForm}
+        onClose={() => setShowForm(false)}
+        expiredMovement={movement.expired}
+        agentMovement={movement.agent}
+        incomeMovement={movement.income}
+        amountMovement={movement.amount}
+        categoryMovement={movement.category}
+      />
       <tr>
         <td>{movement.expired}</td>
-        <td>{movement.name}</td>
-        <td>{movement.flow ? 'Ingreso' : 'Egreso'}</td>
-        <td>{movement.mount}</td>
+        <td>{movement.agent}</td>
+        <td>{movement.income ? 'Ingreso' : 'Egreso'}</td>
+        <td>{movement.amount}</td>
         <td>{movement.category}</td>
-        <td><Button movement={movement} onClick={() => setShowForm(true)}>Ver</Button></td>
+        <td><Button onClick={() => setShowForm(true)}>Ver</Button></td>
       </tr>
     </>
   )

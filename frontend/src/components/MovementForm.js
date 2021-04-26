@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import useMovement from '../hooks/useMovement'
@@ -132,10 +132,12 @@ const CancelButton = styled.button`
   }
 `
 
-const MovementForm = ({ formDisplay, onClose }) => {
+const today = new Date().toISOString().slice(0, 10)
+
+const MovementForm = ({ formDisplay, onClose, idMovement = null, expiredMovement = today, agentMovement = '', incomeMovement = false, amountMovement = '', categoryMovement = '' }) => {
   if (!formDisplay) return null
 
-  const today = new Date().toISOString().slice(0, 10)
+  const [id, setId] = useState(null)
   const [expired, setExpired] = useState(today)
   const [agent, setAgent] = useState('')
   const [income, setIncome] = useState(false)
@@ -143,8 +145,18 @@ const MovementForm = ({ formDisplay, onClose }) => {
   const [category, setCategory] = useState('')
   const { createMovement } = useMovement()
 
+  useEffect(() => {
+    setId(idMovement)
+    setExpired(expiredMovement)
+    setAgent(agentMovement)
+    setIncome(incomeMovement)
+    setAmount(amountMovement)
+    setCategory(categoryMovement)
+  })
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log({ expired, agent, income, amount, category })
     createMovement({ expired, agent, income, amount, category })
     onClose()
   }
@@ -155,7 +167,7 @@ const MovementForm = ({ formDisplay, onClose }) => {
         <FirstRow>
           <input type='date' placeholder='Fecha' value={expired} onChange={(e) => setExpired(e.target.value)} />
           <input type='text' placeholder='Agente' value={agent} onChange={(e) => setAgent(e.target.value)} />
-          <label><input type='checkbox' onChange={() => setIncome(!income)} />Ingreso</label>
+          <label><input type='checkbox' checked={income} onChange={() => setIncome(!income)} />Ingreso</label>
         </FirstRow>
         <SecondRow>
           <AmountInput type='number' placeholder='Monto' value={amount} onChange={(e) => setAmount(e.target.value)} />
