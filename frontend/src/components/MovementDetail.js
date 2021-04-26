@@ -25,6 +25,7 @@ const MovementDetail = ({ movement }) => {
       <MovementForm
         formDisplay={showForm}
         onClose={() => setShowForm(false)}
+        idMovement={movement.id}
         expiredMovement={movement.expired}
         agentMovement={movement.agent}
         incomeMovement={movement.income}

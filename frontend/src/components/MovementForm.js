@@ -156,7 +156,6 @@ const MovementForm = ({ formDisplay, onClose, idMovement = null, expiredMovement
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log({ expired, agent, income, amount, category })
     createMovement({ expired, agent, income, amount, category })
     onClose()
   }
