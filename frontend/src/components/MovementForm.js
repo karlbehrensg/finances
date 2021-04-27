@@ -152,11 +152,11 @@ const MovementForm = ({ formDisplay, onClose, idMovement = null, expiredMovement
     setIncome(incomeMovement)
     setAmount(amountMovement)
     setCategory(categoryMovement)
-  })
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    createMovement({ expired, agent, income, amount, category })
+    createMovement({ id, expired, agent, income, amount, category })
     onClose()
   }
 
@@ -174,7 +174,7 @@ const MovementForm = ({ formDisplay, onClose, idMovement = null, expiredMovement
         </SecondRow>
         <ThirdRow>
           <CancelButton onClick={onClose}>Cancelar</CancelButton>
-          <AddButton onClick={handleSubmit}>Crear</AddButton>
+          <AddButton onClick={handleSubmit}>{idMovement ? 'Editar' : 'Crear'}</AddButton>
         </ThirdRow>
       </Form>
     </Container>,

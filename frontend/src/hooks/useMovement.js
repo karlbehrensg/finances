@@ -5,8 +5,10 @@ import createMovementService from '../services/createMovement'
 const useMovement = () => {
   const { jwt } = useContext(Context)
 
-  const createMovement = useCallback(({ expired, agent, income, amount, category }) => {
-    createMovementService({ jwt, expired, agent, income, amount, category })
+  const createMovement = useCallback(({ id, expired, agent, income, amount, category }) => {
+    const method = (id) ? 'PUT' : 'POST'
+
+    createMovementService({ jwt, id, expired, agent, income, amount, category, method })
       .catch(err => {
         console.error(err)
       })
