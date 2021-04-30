@@ -17,13 +17,15 @@ const SummaryCards = () => {
   const [outcomes, setOutcomes] = useState(0)
   const [balance, setBalance] = useState(0)
   const [usage, setUsage] = useState(0)
+  const today = new Date()
+  const currentMonth = today.getMonth()
 
   useEffect(() => {
     if (summary.incomes) {
-      setIncomes(summary.incomes[4])
-      setOutcomes(summary.outcomes[4])
-      setBalance(summary.incomes[4] - summary.outcomes[4])
-      setUsage((summary.incomes[4] !== 0) ? Math.round(summary.outcomes[4] / summary.incomes[4] * 100 * 100) / 100 : 0)
+      setIncomes(summary.incomes[currentMonth])
+      setOutcomes(summary.outcomes[currentMonth])
+      setBalance(summary.incomes[currentMonth] - summary.outcomes[currentMonth])
+      setUsage((summary.incomes[currentMonth] !== 0) ? Math.round(summary.outcomes[currentMonth] / summary.incomes[currentMonth] * 100 * 100) / 100 : 0)
     }
   }, [summary])
 
