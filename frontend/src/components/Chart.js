@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Line } from 'react-chartjs-2'
 import styled from 'styled-components'
+
+import Context from '../context/UserContext'
 
 const Container = styled.div`
   display: flex;
@@ -10,21 +12,30 @@ const Container = styled.div`
 `
 
 const Chart = () => {
+  const { summary } = useContext(Context)
+  const incomes = summary.incomes
+  const outcomes = summary.outcomes
+
+  const months = [
+    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
+    'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+  ]
+
   return (
     <Container>
       <Line
         data={{
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: months,
           datasets: [
             {
               label: 'Ingresos',
-              data: [12, 19, 3, 22, 15, 16],
+              data: incomes,
               borderColor: 'rgba(49, 137, 18, 1)',
               borderWidth: 2
             },
             {
               label: 'Egresos',
-              data: [8, 14, 7, 8, 12, 12],
+              data: outcomes,
               borderColor: 'rgba(238, 0, 0, 1)',
               borderWidth: 2
             }

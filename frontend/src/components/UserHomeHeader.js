@@ -40,40 +40,40 @@ const Form = styled.form`
   width: 164px;
 `
 
-const today = new Date()
-const currentMonth = today.getMonth()
-const currentYear = today.getFullYear()
-
-const years = Array(currentYear - 2020 + 2).fill().map((_, idx) => 2020 + idx)
-
-const months = [
-  { month: 'Enero', value: 0 },
-  { month: 'Febrero', value: 1 },
-  { month: 'Marzo', value: 2 },
-  { month: 'Abril', value: 3 },
-  { month: 'Mayo', value: 4 },
-  { month: 'Junio', value: 5 },
-  { month: 'Julio', value: 6 },
-  { month: 'Agosto', value: 7 },
-  { month: 'Septiembre', value: 8 },
-  { month: 'Octubre', value: 9 },
-  { month: 'Noviembre', value: 10 },
-  { month: 'Diciembre', value: 11 }
-]
-
-const yearOptions = years.map((year) =>
-  <option value={year.value} key={year}>
-    {year}
-  </option>
-)
-
-const monthOptions = months.map((month, index) =>
-  <option value={month.value} key={index}>
-    {month.month}
-  </option>
-)
-
 const UserHomeHeader = () => {
+  const today = new Date()
+  const currentMonth = today.getMonth()
+  const currentYear = today.getFullYear()
+
+  const years = Array(currentYear - 2020 + 2).fill().map((_, idx) => 2020 + idx)
+
+  const months = [
+    { month: 'Enero', value: 0 },
+    { month: 'Febrero', value: 1 },
+    { month: 'Marzo', value: 2 },
+    { month: 'Abril', value: 3 },
+    { month: 'Mayo', value: 4 },
+    { month: 'Junio', value: 5 },
+    { month: 'Julio', value: 6 },
+    { month: 'Agosto', value: 7 },
+    { month: 'Septiembre', value: 8 },
+    { month: 'Octubre', value: 9 },
+    { month: 'Noviembre', value: 10 },
+    { month: 'Diciembre', value: 11 }
+  ]
+
+  const yearOptions = years.map((year) =>
+    <option value={year.value} key={year}>
+      {year}
+    </option>
+  )
+
+  const monthOptions = months.map((month, index) =>
+    <option value={month.value} key={index}>
+      {month.month}
+    </option>
+  )
+
   return (
     <>
       <Title>Resumen</Title>
