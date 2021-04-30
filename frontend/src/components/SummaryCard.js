@@ -15,7 +15,7 @@ const Card = styled.div`
 `
 
 const Valor = styled.h1`
-  color: rgba(49, 137, 18, 1);
+  color: ${props => props.color};
   text-align: center;
 `
 
@@ -24,12 +24,12 @@ const CardHeader = styled.h5`
   text-align: center;
 `
 
-const SummaryCard = ({ title, total }) => {
+const SummaryCard = ({ title, total, color }) => {
   return (
     <>
       <Card>
         <CardHeader>{title}</CardHeader>
-        <Valor>{total}</Valor>
+        <Valor color={color}>{total}</Valor>
       </Card>
     </>
   )

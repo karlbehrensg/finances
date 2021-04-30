@@ -29,10 +29,10 @@ const SummaryCards = () => {
 
   return (
     <Container>
-      <SummaryCard title='Ingresos' total={`$${incomes}`} />
-      <SummaryCard title='Egresos' total={`$${outcomes}`} />
-      <SummaryCard title='Neto' total={`$${balance}`} />
-      <SummaryCard title='% Egresos / Ingresos' total={`%${usage}`} />
+      <SummaryCard title='Ingresos' total={`$${incomes}`} color='rgba(49, 137, 18, 1)' />
+      <SummaryCard title='Egresos' total={`$${outcomes}`} color='rgba(238, 0, 0, 1)' />
+      <SummaryCard title='Neto' total={`$${balance}`} color='rgba(0, 119, 182, 1)' />
+      <SummaryCard title='% Egresos / Ingresos' total={`%${usage}`} color='rgba(37, 39, 51, 1)' />
     </Container>
   )
 }
