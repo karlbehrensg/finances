@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
+import ConfirmDelete from '../components/ConfirmDelete'
 import useMovement from '../hooks/useMovement'
 
 const AmountInput = styled.input``
@@ -152,6 +153,7 @@ const today = new Date().toISOString().slice(0, 10)
 const MovementForm = ({ formDisplay, onClose, idMovement = null, expiredMovement = today, agentMovement = '', incomeMovement = false, amountMovement = '', categoryMovement = '' }) => {
   if (!formDisplay) return null
 
+  const [display, setDisplay] = useState(false)
   const [id, setId] = useState(null)
   const [expired, setExpired] = useState(today)
   const [agent, setAgent] = useState('')
@@ -175,12 +177,9 @@ const MovementForm = ({ formDisplay, onClose, idMovement = null, expiredMovement
     onClose()
   }
 
-  const deleteSubmit = (e) => {
-    console.log('borrar')
-  }
-
   return ReactDOM.createPortal(
     <Container>
+      <ConfirmDelete display={display} onClose={() => setDisplay(false)} onCloseDetail={onClose} idMovement={id} />
       <Form>
         <FirstRow>
           <input type='date' placeholder='Fecha' value={expired} onChange={(e) => setExpired(e.target.value)} />
@@ -192,7 +191,7 @@ const MovementForm = ({ formDisplay, onClose, idMovement = null, expiredMovement
           <CategoryInput type='text' placeholder='Categoria' value={category} onChange={(e) => setCategory(e.target.value)} />
         </SecondRow>
         <ThirdRow>
-          <DeleteButton onClick={deleteSubmit}>Eliminar</DeleteButton>
+          <DeleteButton onClick={() => setDisplay(true)}>Eliminar</DeleteButton>
           <CancelButton onClick={onClose}>Cancelar</CancelButton>
           <AddButton onClick={handleSubmit}>{idMovement ? 'Editar' : 'Crear'}</AddButton>
         </ThirdRow>
