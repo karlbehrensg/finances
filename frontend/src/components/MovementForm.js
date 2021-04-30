@@ -132,6 +132,21 @@ const CancelButton = styled.button`
   }
 `
 
+const DeleteButton = styled.button`
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 100px;
+  width: 80px;
+  height: 22px;
+  color: white;
+  font-weight: bold;
+  margin: 5px 0 0 10px;
+  
+  :hover {
+    background: rgba(255, 69, 70, 1);
+    transition: 0.5s;
+  }
+`
+
 const today = new Date().toISOString().slice(0, 10)
 
 const MovementForm = ({ formDisplay, onClose, idMovement = null, expiredMovement = today, agentMovement = '', incomeMovement = false, amountMovement = '', categoryMovement = '' }) => {
@@ -160,6 +175,10 @@ const MovementForm = ({ formDisplay, onClose, idMovement = null, expiredMovement
     onClose()
   }
 
+  const deleteSubmit = (e) => {
+    console.log('borrar')
+  }
+
   return ReactDOM.createPortal(
     <Container>
       <Form>
@@ -173,6 +192,7 @@ const MovementForm = ({ formDisplay, onClose, idMovement = null, expiredMovement
           <CategoryInput type='text' placeholder='Categoria' value={category} onChange={(e) => setCategory(e.target.value)} />
         </SecondRow>
         <ThirdRow>
+          <DeleteButton onClick={deleteSubmit}>Eliminar</DeleteButton>
           <CancelButton onClick={onClose}>Cancelar</CancelButton>
           <AddButton onClick={handleSubmit}>{idMovement ? 'Editar' : 'Crear'}</AddButton>
         </ThirdRow>
