@@ -1,6 +1,7 @@
 import { useContext, useCallback } from 'react'
 import Context from '../context/UserContext'
 import createMovementService from '../services/createMovement'
+import deleteMovementService from '../services/deleteMovement'
 import getMovements from '../services/getMovements'
 import getSummary from '../services/getSummary'
 
@@ -20,8 +21,20 @@ const useMovement = () => {
       })
   }, [])
 
+  const deleteMovement = useCallback(({ id }) => {
+    deleteMovementService({ jwt, id })
+      .then(() => {
+        getMovements({ jwt }).then(setMovements)
+        getSummary({ jwt }).then(setSummary)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }, [])
+
   return {
-    createMovement
+    createMovement,
+    deleteMovement
   }
 }
 

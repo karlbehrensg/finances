@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
+import useMovement from '../hooks/useMovement'
 
 const Container = styled.div`
   position: fixed;
@@ -73,13 +74,16 @@ const ConfirmDelete = ({ display, onClose, onCloseDetail, idMovement }) => {
   if (!display) return null
 
   const [id, setId] = useState(null)
+  const { deleteMovement } = useMovement()
 
   useEffect(() => {
     setId(idMovement)
   }, [])
 
   const handleSubmit = (e) => {
+    e.preventDefault()
     console.log(`borrar ${id}`)
+    deleteMovement({ id })
     onClose()
     onCloseDetail()
   }
