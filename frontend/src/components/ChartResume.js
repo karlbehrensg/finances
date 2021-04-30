@@ -9,7 +9,7 @@ const Container = styled.div`
 `
 
 const Valor = styled.h1`
-  color: rgba(238, 0, 0, 1);
+  color: ${props => props.color};
   text-align: center;
   margin-top: 10px;
 `
@@ -23,11 +23,11 @@ const CardHeader = styled.h5`
   height: 35%;
 `
 
-const ChartResume = () => {
+const ChartResume = ({ title, total, color }) => {
   return (
     <Container>
-      <CardHeader>Promedio Ingreso</CardHeader>
-      <Valor>$9.999</Valor>
+      <CardHeader>{title}</CardHeader>
+      <Valor color={color}>{total}</Valor>
     </Container>
   )
 }
