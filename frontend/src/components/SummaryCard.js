@@ -24,12 +24,12 @@ const CardHeader = styled.h5`
   text-align: center;
 `
 
-const SummaryCard = () => {
+const SummaryCard = ({ title, total }) => {
   return (
     <>
       <Card>
-        <CardHeader>Ingreso</CardHeader>
-        <Valor>$9.999</Valor>
+        <CardHeader>{title}</CardHeader>
+        <Valor>{total}</Valor>
       </Card>
     </>
   )

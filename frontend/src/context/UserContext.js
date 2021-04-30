@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import getMovements from '../services/getMovements'
-import getResume from '../services/getResume'
+import getSummary from '../services/getSummary'
 
 const Context = React.createContext({})
 
 export function UserContextProvider ({ children }) {
-  const [resume, setResume] = useState([])
+  const [summary, setSummary] = useState([])
   const [movements, setMovements] = useState([])
   const [jwt, setJWT] = useState(() => window.localStorage.getItem('jwt'))
 
   useEffect(() => {
     if (!jwt) return setMovements([])
     getMovements({ jwt }).then(setMovements)
-    getResume({ jwt }).then(setResume)
+    getSummary({ jwt }).then(setSummary)
   }, [jwt])
 
   return (
     <Context.Provider value={{
-      resume,
+      summary,
       movements,
       jwt,
-      getResume,
+      setSummary,
       setMovements,
       setJWT
     }}

@@ -37,16 +37,18 @@ def movements_list(request):
 
 
 @api_view(['GET'])
-def resume(request):
+def summary(request):
     user = request.user
     year = date.today().year
     months = range(1, 13)
     response = {}
+    incomes = []
+    outcomes = []
 
     for month in months:
         movements = Movement.objects.filter(user=user, expired__year=year, expired__month=month)
-        incomes = sum(movement.amount for movement in movements if movement.income)
-        outcomes = sum(movement.amount for movement in movements if not movement.income)
-        response.update({f'{month}': {'incomes': incomes, 'outcomes': outcomes}})
+        incomes.append(sum(movement.amount for movement in movements if movement.income))
+        outcomes.append(sum(movement.amount for movement in movements if not movement.income))
     
+    response.update({'incomes': incomes, 'outcomes': outcomes})
     return Response(response, status=status.HTTP_200_OK)

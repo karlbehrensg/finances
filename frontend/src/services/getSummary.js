@@ -1,7 +1,7 @@
 const ENDPOINT = 'http://127.0.0.1:8000'
 
-const getResume = ({ jwt }) => {
-  return fetch(`${ENDPOINT}/api/resume/`, {
+const getSummary = ({ jwt }) => {
+  return fetch(`${ENDPOINT}/api/summary/`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${jwt}`
@@ -12,4 +12,4 @@ const getResume = ({ jwt }) => {
   }).then(res => { return res })
 }
 
-export default getResume
+export default getSummary
