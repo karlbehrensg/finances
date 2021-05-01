@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import Context from '../context/UserContext'
 import AgentDetail from './AgentDetail'
 
 const Container = styled.div`
@@ -26,6 +27,14 @@ const Table = styled.table`
 `
 
 const AgentsTable = () => {
+  const { debts } = useContext(Context)
+
+  console.log(debts)
+
+  const agentDetailList = debts.map((debt, index) =>
+    <AgentDetail name={debt.agent} income={(debt.total > 0)} expiredDate={debt.date} total={Math.abs(debt.total).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })} key={index} />
+  )
+
   return (
     <Container>
       <Table>
@@ -35,15 +44,9 @@ const AgentsTable = () => {
             <th>Fecha</th>
             <th>Flujo</th>
             <th>Total</th>
-            <th>Detalle</th>
+            {/* <th>Detalle</th> */}
           </tr>
-          <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
-          <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
-          <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
-          <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
-          <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
-          <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
-          <AgentDetail name='Ernesto' flow='Ingreso' expiredDate='2021-03-16' total={9.999} />
+          {agentDetailList}
         </tbody>
       </Table>
     </Container>
