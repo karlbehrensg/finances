@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from .models import Movement
 from .serializers import MovementSerializer
 
+
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
 def movements_list(request):
     if request.method == 'GET':
@@ -25,7 +26,7 @@ def movements_list(request):
 
     elif request.method == 'PUT':
         try:
-            movements = Movement.objects.get(pk=request.data['id'])
+            movements = Movement.objects.get(user=request.user, pk=request.data['id'])
         except Movement.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -37,11 +38,12 @@ def movements_list(request):
 
     elif request.method == 'DELETE':
         try:
-            movements = Movement.objects.get(pk=request.data['id'])
+            movements = Movement.objects.get(user=request.user, pk=request.data['id'])
         except Movement.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         movements.delete()
         return Response(status=status.HTTP_202_ACCEPTED)
+
 
 @api_view(['GET'])
 def summary(request):

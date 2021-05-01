@@ -36,7 +36,7 @@ const MovementDetail = ({ movement }) => {
         <td>{movement.expired}</td>
         <td>{movement.agent}</td>
         <td>{movement.income ? 'Ingreso' : 'Egreso'}</td>
-        <td>{movement.amount}</td>
+        <td>{movement.amount.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</td>
         <td>{movement.category}</td>
         <td><Button onClick={() => setShowForm(true)}>Ver</Button></td>
       </tr>

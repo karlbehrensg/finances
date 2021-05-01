@@ -51,9 +51,9 @@ const History = () => {
         <Chart />
       </ChartContainer>
       <ResumeContainer>
-        <ChartResume title='Promedio Neto' total={`$${averageBalance}`} color='rgba(0, 119, 182, 1)' />
-        <ChartResume title='Promedio Ingreso' total={`$${averageIncomes}`} color='rgba(49, 137, 18, 1)' />
-        <ChartResume title='Promedio Egreso' total={`$${averageOutcomes}`} color='rgba(238, 0, 0, 1)' />
+        <ChartResume title='Promedio Neto' total={`$${averageBalance.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`} color='rgba(0, 119, 182, 1)' />
+        <ChartResume title='Promedio Ingreso' total={`$${averageIncomes.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`} color='rgba(49, 137, 18, 1)' />
+        <ChartResume title='Promedio Egreso' total={`$${averageOutcomes.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`} color='rgba(238, 0, 0, 1)' />
         <ChartResume title='% Egresos / Ingresos' total={`%${averageUsage}`} color='rgba(37, 39, 51, 1)' />
       </ResumeContainer>
     </Container>
