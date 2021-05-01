@@ -61,3 +61,31 @@ def summary(request):
     
     response.update({'incomes': incomes, 'outcomes': outcomes})
     return Response(response, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def debts(request): 
+    response = {}
+
+    movements = Movement.objects.filter(user=request.user)
+
+    dates = {movement.expired for movement in movements}
+
+    for date in dates:
+        response.update({date.strftime('%Y-%m-%d'): {}})
+        agents = {movement.agent for movement in movements}
+        for agent in agents:
+            income = sum(
+                movement.amount for movement in movements 
+                if movement.income and movement.agent == agent and movement.expired == date
+            )
+
+            outcome = sum(
+                movement.amount for movement in movements 
+                if not movement.income and movement.agent == agent and movement.expired == date
+            )
+
+            if income or outcome:
+                response[date.strftime('%Y-%m-%d')].update({agent: income - outcome})
+
+    return Response(response, status=status.HTTP_200_OK)
