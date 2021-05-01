@@ -69,7 +69,7 @@ def debts(request):
 
     movements = Movement.objects.filter(user=request.user)
 
-    dates = {movement.expired for movement in movements}
+    dates = sorted({movement.expired for movement in movements})
 
     for date in dates:
         response.update({date.strftime('%Y-%m-%d'): {}})
