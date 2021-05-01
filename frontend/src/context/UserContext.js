@@ -12,7 +12,11 @@ export function UserContextProvider ({ children }) {
   const [jwt, setJWT] = useState(() => window.localStorage.getItem('jwt'))
 
   useEffect(() => {
-    if (!jwt) return setMovements([])
+    if (!jwt) {
+      setMovements([])
+      setSummary([])
+      setDebts([])
+    }
     getMovements({ jwt }).then(setMovements)
     getSummary({ jwt }).then(setSummary)
     getDebts({ jwt }).then(setDebts)

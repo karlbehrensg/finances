@@ -29,8 +29,6 @@ const Table = styled.table`
 const AgentsTable = () => {
   const { debts } = useContext(Context)
 
-  console.log(debts)
-
   const agentDetailList = debts.map((debt, index) =>
     <AgentDetail name={debt.agent} income={(debt.total > 0)} expiredDate={debt.date} total={Math.abs(debt.total).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })} key={index} />
   )

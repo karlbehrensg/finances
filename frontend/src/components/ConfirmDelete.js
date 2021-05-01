@@ -82,7 +82,6 @@ const ConfirmDelete = ({ display, onClose, onCloseDetail, idMovement }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(`borrar ${id}`)
     deleteMovement({ id })
     onClose()
     onCloseDetail()

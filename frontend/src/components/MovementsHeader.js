@@ -20,45 +20,45 @@ const Title = styled.h3`
   font-size: 24px;
 `
 
-const Select = styled.select`
-  border: 1px solid rgba(164, 166, 179, 1);
-  box-sizing: border-box;
-  border-radius: 4px;
-  width: 50px;
-  height: 20px;
-  text-align-last:center;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-`
+// const Select = styled.select`
+//   border: 1px solid rgba(164, 166, 179, 1);
+//   box-sizing: border-box;
+//   border-radius: 4px;
+//   width: 50px;
+//   height: 20px;
+//   text-align-last:center;
+//   -moz-appearance: none;
+//   -webkit-appearance: none;
+// `
 
-const Button = styled.button`
-  background: rgba(4, 195, 92, 1);
-  border-radius: 100px;
-  width: 50px;
-  height: 20px;
-  color: white;
-  font-weight: bold;
-  
-  :hover {
-    background: rgba(41, 204, 151, 1);
-    transition: 0.5s;
-  }
-`
+// const Button = styled.button`
+//   background: rgba(4, 195, 92, 1);
+//   border-radius: 100px;
+//   width: 50px;
+//   height: 20px;
+//   color: white;
+//   font-weight: bold;
 
-const Form = styled.form`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-left: 24px;
-  margin-top: 5px;
-  max-width: 400px;
-`
+//   :hover {
+//     background: rgba(41, 204, 151, 1);
+//     transition: 0.5s;
+//   }
+// `
 
-const SelectionContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-`
+// const Form = styled.form`
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+//   margin-left: 24px;
+//   margin-top: 5px;
+//   max-width: 400px;
+// `
+
+// const SelectionContainer = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+// `
 
 const AddButton = styled.button`
   background: rgba(4, 195, 92, 1);
@@ -83,7 +83,7 @@ const MovementsHeader = () => {
       <MovementForm formDisplay={formDisplay} onClose={() => setFormDisplay(false)} />
       <div>
         <Title>Movimientos</Title>
-        <Form>
+        {/* <Form>
           <SelectionContainer>
             <Select name='month' id='initial_month'>
               <option value='march'>Marzo</option>
@@ -106,7 +106,7 @@ const MovementsHeader = () => {
             </Select>
           </SelectionContainer>
           <Button type='button'>Ir</Button>
-        </Form>
+        </Form> */}
       </div>
       <AddButton type='button' onClick={() => setFormDisplay(true)}>Crear movimiento</AddButton>
     </Container>
